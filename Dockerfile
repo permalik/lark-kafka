@@ -4,13 +4,7 @@ ENV KAFKA_HOME=/opt/kafka \
     KAFKA_LOG_DIR=/opt/kafka/kafka-logs \
     PATH=$KAFKA_HOME/bin:$PATH
 
-RUN groupadd -r kafka && \
-    useradd -r -g kafka -d $KAFKA_HOME -s /sbin/nologin kafka
-
-RUN mkdir -p $KAFKA_HOME $KAFKA_LOG_DIR && \
-    chown -R kafka:kafka $KAFKA_HOME $KAFKA_LOG_DIR
-
-USER kafka
+RUN mkdir -p $KAFKA_HOME $KAFKA_LOG_DIR
 
 EXPOSE 9092 9093
 
