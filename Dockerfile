@@ -7,7 +7,11 @@ ENV KAFKA_HOME=/opt/kafka \
 COPY docker-entrypoint.sh /opt/kafka/entrypoint.sh
 RUN chmod +x /opt/kafka/entrypoint.sh
 
+RUN mkdir -p $KAFKA_LOG_DIR && chown -R appuser:appuser $KAFKA_LOG_DIR
+
 EXPOSE 9092 9093
+
+USER appuser
 
 ENTRYPOINT ["/opt/kafka/entrypoint.sh"]
 
