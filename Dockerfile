@@ -4,7 +4,7 @@ ENV KAFKA_HOME=/opt/kafka \
     KAFKA_LOG_DIR=/opt/kafka/kafka-logs \
     PATH=$KAFKA_HOME/bin:$PATH
 
-COPY docker-entrypoint.sh /opt/kafka/entrypoint.sh
+COPY entrypoint.sh /opt/kafka/entrypoint.sh
 RUN chmod +x /opt/kafka/entrypoint.sh
 
 RUN mkdir -p $KAFKA_LOG_DIR && chown -R appuser:appuser $KAFKA_LOG_DIR
